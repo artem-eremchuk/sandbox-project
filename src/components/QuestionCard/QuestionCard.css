@@ -1,0 +1,26 @@
+
+img {
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  margin: 10px auto 0;
+  padding: 15px;
+  width: 600px;
+  border: 2px solid #CD00CD;
+  border-radius: 10px;
+}
+
+.question-sign{
+  width: 120px;
+}
+
+.question-card {
+  width: 100%;
+}
+
+.question-card__title {
+  margin: 0;
+  font-size: 15px;
+}
