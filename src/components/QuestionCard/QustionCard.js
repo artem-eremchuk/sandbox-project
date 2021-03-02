@@ -3,16 +3,28 @@ import questionSign from '../QuestionCard/question-sign.png';
 import './QuestionCard.css';
 import AnswersField from '../AnswersField/AnswersField';
 
-const QuestionCard = ({test, typeOfAnswer, index}) => {
+const QuestionCard = (props) => {
+  const {
+      test, 
+      index, 
+      typeOfAnswer, 
+      handleTextArea,
+      handleRadioButton,
+      handleCheckBoxInput
+    } = props;
+
   return (
     <div className="container">
       <img className="question-sign" src={questionSign} alt="question-sign" />
       <div className="question-card">
         <h3 className="question-card__title">{test.question}</h3>
         <AnswersField 
-          index={index}
           test={test} 
+          index={index}
           typeOfAnswer={typeOfAnswer} 
+          handleTextArea={handleTextArea}
+          handleRadioButton={handleRadioButton}
+          handleCheckBoxInput={handleCheckBoxInput}
         />
       </div>
     </div>

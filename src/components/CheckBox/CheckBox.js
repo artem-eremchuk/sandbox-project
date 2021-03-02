@@ -1,27 +1,23 @@
 import React from 'react';
 import './CheckBox.css';
 
-const CheckBox = ({test}) => {
-  const {answer1, answer2, answer3} = test;
+const CheckBox = ({test, handleCheckBoxInput}) => {
 
-  return (
-    <div>
-      <div className="container-checkbox">
-        <input type="checkbox" id="answer-1" value="answer-1"/>
-        <label htmlFor="answer-1">{answer1}</label>
+  const data = test.answers.map((unit, index) => {
+    return (
+      <div className="container-checkbox" key={index}>
+        <input
+          type="checkbox"
+          id={unit.answer}  
+          value={unit.answer}
+          onChange={handleCheckBoxInput}
+        />
+        <label htmlFor={unit.answer}>{unit.answer}</label>
       </div>
+    )
+  })
 
-      <div className="container-checkbox">
-        <input type="checkbox" id="answer-1" value="answer-2"/>
-        <label htmlFor="answer-2">{answer2}</label>
-      </div>
-
-      <div className="container-checkbox">
-        <input type="checkbox" id="answer-1" value="answer-3"/>
-        <label htmlFor="answer-3">{answer3}</label>
-      </div>
-    </div>
-  );
+  return data;
 }
 
 export default CheckBox;

@@ -1,15 +1,43 @@
 import React from 'react';
 import CheckBox from '../CheckBox/CheckBox';
-import RadioButton from '../RadioButton/RadioButton';
 import TextArea from '../TextArea/TextArea';
+import RadioButton from '../RadioButton/RadioButton';
 
-const AnswersField = ({typeOfAnswer, test, index}) => {
-  if(typeOfAnswer === 'checkbox'){
-    return <CheckBox test={test} />
-  }else if(typeOfAnswer === 'radiobutton'){
-    return <RadioButton test={test} index={index}/>
+const AnswersField = (props) => {
+  const {
+    
+    test, 
+    index, 
+    typeOfAnswer, 
+    handleTextArea,
+    handleRadioButton,
+    handleCheckBoxInput
+  } = props;
+
+  if (typeOfAnswer === 'checkbox'){
+    return (
+      <CheckBox 
+        test={test} 
+        handleCheckBoxInput={handleCheckBoxInput}
+      />
+    );
   }
-  return <TextArea />
+  else if (typeOfAnswer === 'radiobutton'){
+    return (
+      <RadioButton 
+        test={test} 
+        index={index} 
+        handleRadioButton={handleRadioButton}
+      />
+    );
+  }
+
+  return (
+    <TextArea 
+      index={index} 
+      handleTextArea={handleTextArea} 
+    />
+  );
 };
 
 export default AnswersField;
