@@ -1,7 +1,7 @@
 import React from 'react';
 import './RadioButton.css';
 
-const RadioButton = ({test, index, handleRadioButton}) => {
+const RadioButton = ({test, index, handleRadioButton, handleInputChange}) => {
 
   const data = test.answers.map((unit, idx) => {
     return (
@@ -9,12 +9,16 @@ const RadioButton = ({test, index, handleRadioButton}) => {
         <input 
           type="radio" 
           name={index}
-          id={unit.answer} 
           value={unit.answer} 
-          onChange={handleRadioButton}
-          // defaultChecked 
+          defaultChecked={idx === 0}
+          onClick={handleInputChange}
+          id={`rdbn-card${index + 1}-answer${idx + 1}`}
         />
-        <label htmlFor={unit.answer}>{unit.answer}</label>
+        <label 
+          htmlFor={`rdbn-card${index + 1}-answer${idx + 1}`}
+        >
+          {unit.answer}
+        </label>
       </div>
     );
   });

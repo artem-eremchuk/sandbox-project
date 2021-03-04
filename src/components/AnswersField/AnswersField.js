@@ -5,29 +5,31 @@ import RadioButton from '../RadioButton/RadioButton';
 
 const AnswersField = (props) => {
   const {
-    
     test, 
     index, 
-    typeOfAnswer, 
     handleTextArea,
     handleRadioButton,
-    handleCheckBoxInput
+    handleCheckBoxInput,
+    handleInputChange
   } = props;
 
-  if (typeOfAnswer === 'checkbox'){
+  if (test.answerType === 'checkbox'){
     return (
       <CheckBox 
         test={test} 
+        index={index}
         handleCheckBoxInput={handleCheckBoxInput}
+        handleInputChange={handleInputChange}
       />
     );
   }
-  else if (typeOfAnswer === 'radiobutton'){
+  else if (test.answerType === 'radiobutton'){
     return (
       <RadioButton 
         test={test} 
         index={index} 
         handleRadioButton={handleRadioButton}
+        handleInputChange={handleInputChange}
       />
     );
   }
@@ -36,6 +38,7 @@ const AnswersField = (props) => {
     <TextArea 
       index={index} 
       handleTextArea={handleTextArea} 
+      handleInputChange={handleInputChange}
     />
   );
 };

@@ -7,10 +7,10 @@ const QuestionCard = (props) => {
   const {
       test, 
       index, 
-      typeOfAnswer, 
       handleTextArea,
       handleRadioButton,
-      handleCheckBoxInput
+      handleCheckBoxInput,
+      handleInputChange
     } = props;
 
   return (
@@ -21,10 +21,10 @@ const QuestionCard = (props) => {
         <AnswersField 
           test={test} 
           index={index}
-          typeOfAnswer={typeOfAnswer} 
           handleTextArea={handleTextArea}
           handleRadioButton={handleRadioButton}
           handleCheckBoxInput={handleCheckBoxInput}
+          handleInputChange={handleInputChange}
         />
       </div>
     </div>

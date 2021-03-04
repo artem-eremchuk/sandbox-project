@@ -1,12 +1,12 @@
 import React from 'react';
 import '../TextArea/TextArea.css';
 
-const TextArea = ({index, handleTextArea}) => {
+const TextArea = ({index, handleTextArea, handleInputChange}) => {
   return (
     <textarea 
-      id={index} 
       name={index}
-      onBlur={handleTextArea}
+      id={`txa-card${index + 1}`}
+      onBlur={handleInputChange}
       placeholder="Enter your answer..."
     ></textarea>
   );
