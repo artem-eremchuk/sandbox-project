@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import QuestionCard from './components/QuestionCard/QustionCard';
-class App extends React.Component {
+import MyFragment from './fragments/MyFragment';
+
+class App extends Component {
   state = {
     tests: [
       {
@@ -220,21 +222,28 @@ class App extends React.Component {
   }
 
   render(){
+    const questionCard = this.state.tests.map((test, index) => {
+      return (
+        <QuestionCard 
+          key={index}
+          test={test} 
+          index={index}
+          handleTextArea={this.handleTextArea}
+          handleRadioButton={this.handleRadioButton}
+          handleCheckBoxInput={this.handleCheckBoxInput}
+          handleInputChange={this.handleInputChange}
+        />    
+      );
+    })
+
     return (
-      this.state.tests.map((test, index) => {
-        return (
-          <QuestionCard 
-            key={index}
-            test={test} 
-            index={index}
-            handleTextArea={this.handleTextArea}
-            handleRadioButton={this.handleRadioButton}
-            handleCheckBoxInput={this.handleCheckBoxInput}
-            handleInputChange={this.handleInputChange}
-          />
-        );
-      })
-    );
+      <>
+        {questionCard}
+        <MyFragment>
+          <h1 style={{textAlign: 'center'}}>Hello World</h1>
+        </MyFragment>
+      </>
+    )
   }
 }
 
